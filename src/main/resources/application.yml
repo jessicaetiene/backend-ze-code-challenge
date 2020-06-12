@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/ze_db
+        username: postgres
+
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect
+        show-sql: true

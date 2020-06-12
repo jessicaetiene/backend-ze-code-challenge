@@ -1,0 +1,44 @@
+version: '3'
+services:
+  docker-app:
+    image: jessica/code-challenge-app
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - docker-postgres
+    networks:
+      - postgres-compose-network
+
+  docker-postgres:
+    image: postgis/postgis
+    container_name: db_postgres
+    environment:
+      - POSTGRES_DB=ze_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "15432:5432"
+    volumes:
+      - volume_postgres:/var/lib/postgres
+    networks:
+      - postgres-compose-network
+
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "zedelivery"
+      PGADMIN_DEFAULT_PASSWORD: "zedelivery@!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - docker-postgres
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
+
+volumes:
+  volume_postgres:
