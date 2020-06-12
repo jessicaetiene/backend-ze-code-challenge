@@ -28,7 +28,7 @@ docker run -it \
 ## Executando com Docker Compose
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ## Acessando 
