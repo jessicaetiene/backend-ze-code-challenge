@@ -1,7 +1,7 @@
 spring:
     datasource:
         password: postgres
-        url: jdbc:postgresql://docker-postgres:15432/ze_db
+        url: jdbc:postgresql://docker-postgres:5432/ze_db
         username: postgres
     jpa:
         properties:

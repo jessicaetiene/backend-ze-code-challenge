@@ -17,8 +17,6 @@ services:
       - POSTGRES_DB=ze_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - "15432:5432"
     volumes:
       - volume_postgres:/var/lib/postgres
     networks:
