@@ -4,8 +4,9 @@ spring:
         url: jdbc:postgresql://docker-postgres:5432/ze_db
         username: postgres
     jpa:
+        hibernate:
+            ddl-auto: update
         properties:
             hibernate:
-                temp:
-                    use_jdbc_metadata_defaults: false
-
+                dialect: org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect
+        show-sql: true
